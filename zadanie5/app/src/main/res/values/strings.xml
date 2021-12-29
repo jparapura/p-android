@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">kupUJ</string>
+    <string name="first_and_last_name">First and last name</string>
+    <string name="about_application">About application</string>
+    <string name="go_back">Go back</string>
+    <string name="about_app">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod bibendum leo vitae mollis. Nulla facilisi. Suspendisse suscipit, dui eget malesuada ultrices, quam odio rutrum purus, nec euismod eros sapien fermentum felis. Ut ex tortor, tempus et nisi non, elementum scelerisque turpis. Fusce ac nulla varius lorem placerat hendrerit. Donec nisl leo, congue in iaculis in, egestas ut justo. Nulla congue volutpat massa. Proin molestie metus at tellus varius, vitae lobortis urna faucibus. Aenean tempor leo lorem, ac euismod ipsum volutpat et. Nullam ultrices, libero at eleifend congue, erat sem luctus elit, non molestie eros nunc nec libero. Sed viverra feugiat justo in rutrum. Maecenas quam metus, sodales sit amet lectus ac, aliquet pretium nibh. Quisque congue et erat et dictum. Maecenas sit amet vehicula magna, et congue ligula. Ut interdum consequat odio, ut pellentesque erat tincidunt ut. Phasellus sed convallis elit, eu iaculis lectus.</string>
+    <string name="shop_name">kupUJ</string>
+    <string name="buy_btn_no_text">.</string>
+    <string name="product1">Kolomogorov</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="app_icon">app_icon</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="register_form">Register form</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="email">Email</string>
+    <string name="i_accept_the_licence_terms">I accept the licence terms.</string>
+    <string name="product2">Northwind</string>
+    <string name="product3">Baca-cli</string>
+    <string name="product4">Kawa</string>
+    <string name="product_info">Mauris quis gravida purus. Aliquam ex metus, finibus vitae faucibus quis, fringilla at tortor. Nullam nec vestibulum velit, a faucibus elit. Nulla turpis velit, scelerisque vel arcu sed, vehicula blandit neque. Vestibulum aliquam, dui et ornare feugiat, metus lorem gravida orci, molestie scelerisque nulla odio luctus libero. In ac quam in quam commodo eleifend quis quis dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis laoreet id magna vel auctor. Fusce ullamcorper nunc eu libero vehicula sollicitudin. Nullam a hendrerit lacus. Nulla molestie non purus ac scelerisque. Sed risus erat, dapibus nec est vitae, vehicula viverra arcu. Morbi scelerisque ante eget sem tristique, in efficitur urna posuere. Sed a sagittis mauris. Mauris ut sapien dui. Ut non placerat lorem.</string>
+    <string name="product_info_top">Product info</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
