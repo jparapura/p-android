@@ -27,7 +27,10 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.mainFragment, loginFr)
             commit()
         }
+
+        //retrofitTest()
     }
+
 
     fun registerClicked(view: View) {
         //val myIntent = Intent(view.context, Register::class.java)

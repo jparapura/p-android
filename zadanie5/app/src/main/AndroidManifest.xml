@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.januszpol.kupuj">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".EntryPoint"
         android:allowBackup="true"

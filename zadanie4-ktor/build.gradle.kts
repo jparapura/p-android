@@ -28,4 +28,6 @@ dependencies {
 	implementation("org.jetbrains.exposed", "exposed-core", "0.34.1")
 	implementation("org.jetbrains.exposed", "exposed-jdbc", "0.34.1")
 	implementation("org.xerial:sqlite-jdbc:3.30.1")
+
+    implementation("com.google.code.gson:gson:2.8.9")
 }

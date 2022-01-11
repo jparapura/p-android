@@ -11,6 +11,8 @@ import io.ktor.request.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
+import com.google.gson.Gson
+
 import com.januszpol.models.User
 import com.januszpol.tables.UserTable
 
@@ -31,7 +33,7 @@ fun Application.getUser() {
 			transaction {
                 users = UserTable.selectAll().map { UserTable.toUser(it) }.toMutableList()
             }
-            call.respond(users.toString())
+            call.respond(Gson().toJson(users))
     	}
 
         get("/user/{id}") {
