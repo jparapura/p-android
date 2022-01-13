@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 class MainActivity : AppCompatActivity() {
-//    private lateinit var loginView : TextView
-//    private lateinit var passwordView : TextView
+    private lateinit var loginView : TextView
+    private lateinit var passwordView : TextView
 
     private lateinit var loginFr : Fragment
     private lateinit var registerFr : Fragment
@@ -42,14 +42,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    fun loginClicked(view: View) {
-//        if (loginView.text.toString() == "aaa" && passwordView.text.toString() == "bba") {
-//            val myIntent = Intent(view.context, Products::class.java)
-//            startActivityForResult(myIntent, 0)
-//        }
-//        else {
-//            loginView.text = ""
-//            passwordView.text = ""
-//        }
-//    }
+    fun loginClicked(view: View) {
+        val myIntent = Intent(view.context, ScrollableProducts::class.java)
+        //val myIntent = Intent(view.context, Products::class.java)
+        startActivityForResult(myIntent, 0)
+        //if (loginView.text.toString() == "aaa" && passwordView.text.toString() == "bba") {
+        //    val myIntent = Intent(view.context, Products::class.java)
+        //    startActivityForResult(myIntent, 0)
+        //}
+        //else {
+        //    loginView.text = ""
+        //    passwordView.text = ""
+        //}
+    }
 }

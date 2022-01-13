@@ -11,6 +11,8 @@ import io.ktor.request.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
+import com.google.gson.Gson
+
 import com.januszpol.models.Product
 import com.januszpol.tables.ProductTable
 
@@ -31,7 +33,7 @@ fun Application.getProduct() {
 			transaction {
                 products = ProductTable.selectAll().map { ProductTable.toProduct(it) }.toMutableList()
             }
-            call.respond(products.toString())
+            call.respond(Gson().toJson(products))
     	}
 
         get("/product/{id}") {

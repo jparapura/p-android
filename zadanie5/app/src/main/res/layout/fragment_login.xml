@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.15" />
 
     <EditText
-        android:id="@+id/loginTF2"
+        android:id="@+id/loginTF"
         android:layout_width="226dp"
         android:layout_height="49dp"
         android:layout_marginBottom="248dp"
@@ -63,11 +63,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordTF2"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTF"
         app:layout_constraintVertical_bias="0.118" />
 
     <EditText
-        android:id="@+id/passwordTF2"
+        android:id="@+id/passwordTF"
         android:layout_width="226dp"
         android:layout_height="54dp"
         android:ems="10"
@@ -80,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginTF2"
+        app:layout_constraintTop_toBottomOf="@+id/loginTF"
         app:layout_constraintVertical_bias="0.071" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
