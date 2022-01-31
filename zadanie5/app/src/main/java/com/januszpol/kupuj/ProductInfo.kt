@@ -22,7 +22,7 @@ class ProductInfo : AppCompatActivity() {
     }
 
     fun buyClicked(view: View) {
-        val myIntent = Intent(view.context, Products::class.java)
+        val myIntent = Intent(view.context, ScrollableProducts::class.java)
         startActivityForResult(myIntent, 0)
     }
 }

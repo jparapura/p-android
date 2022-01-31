@@ -11,6 +11,8 @@ import io.ktor.request.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
+import com.google.gson.Gson
+
 import com.januszpol.models.Order
 import com.januszpol.tables.OrderTable
 
@@ -31,7 +33,7 @@ fun Application.getOrder() {
 			transaction {
                 orders = OrderTable.selectAll().map { OrderTable.toOrder(it) }.toMutableList()
             }
-            call.respond(orders.toString())
+            call.respond(Gson().toJson(orders))
     	}
 
         get("/order/{id}") {
@@ -40,7 +42,7 @@ fun Application.getOrder() {
             transaction {
                 order = OrderTable.select { OrderTable.id eq id }.map { OrderTable.toOrder(it) }.first()
             }
-            call.respond(order.toString())
+            call.respond(Gson().toJson(order))
         }
 
     }

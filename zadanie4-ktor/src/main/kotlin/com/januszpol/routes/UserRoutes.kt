@@ -42,7 +42,7 @@ fun Application.getUser() {
             transaction {
                 user = UserTable.select { UserTable.id eq id }.map { UserTable.toUser(it) }.first()
             }
-            call.respond(user.toString())
+            call.respond(Gson().toJson(user))
         }
 
     }

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.januszpol.kupuj.models.Product
@@ -20,13 +21,6 @@ class ScrollableProducts : AppCompatActivity() {
         setContentView(R.layout.activity_scrollable_products)
 
         val config = Realm.getDefaultConfiguration()
-//        Realm.init(this)
-//        val config = RealmConfiguration.Builder()
-//            .name("localdb_v2")
-//            .allowQueriesOnUiThread(true)
-//            .allowWritesOnUiThread(true)
-//            .compactOnLaunch()
-//            .build()
         realm = Realm.getInstance(config)
         val task = realm.where(Product::class.java)
         val results = task.sort("id", Sort.ASCENDING).findAll()
@@ -65,5 +59,10 @@ class ScrollableProducts : AppCompatActivity() {
             intent.putExtra("description",results[position]!!.description)
             startActivity(intent)
         }
+    }
+
+    fun aboutAppClicked(view: View) {
+        val myIntent = Intent(view.context, About::class.java)
+        startActivityForResult(myIntent, 0)
     }
 }

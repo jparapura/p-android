@@ -11,6 +11,8 @@ import io.ktor.request.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
+import com.google.gson.Gson
+
 import com.januszpol.models.Category
 import com.januszpol.tables.CategoryTable
 
@@ -27,11 +29,11 @@ fun Application.getCategory() {
     
     routing {
     	get("/category") {
-			var categorys = mutableListOf<Category>()
+			var categories = mutableListOf<Category>()
 			transaction {
-                categorys = CategoryTable.selectAll().map { CategoryTable.toCategory(it) }.toMutableList()
+                categories = CategoryTable.selectAll().map { CategoryTable.toCategory(it) }.toMutableList()
             }
-            call.respond(categorys.toString())
+            call.respond(Gson().toJson(categories))
     	}
 
         get("/category/{id}") {
@@ -40,7 +42,7 @@ fun Application.getCategory() {
             transaction {
                 category = CategoryTable.select { CategoryTable.id eq id }.map { CategoryTable.toCategory(it) }.first()
             }
-            call.respond(category.toString())
+            call.respond(Gson().toJson(category))
         }
 
     }
@@ -49,6 +51,7 @@ fun Application.getCategory() {
 
 private fun Application.putCategory() {
     routing {
+        // aktualizacja całego rekordu
         put("/category/{id}") {
 			val p_id = call.parameters["id"]!!.toInt()
 			val p_name = call.parameters["name"].toString()
@@ -68,6 +71,7 @@ fun Application.postCategory() {
 // curl -X POST http://127.0.0.1:8080/category -H "Content-Type: application/x-www-form-urlencoded" -d "login=Arek&email=sokolowski@uj.edu.pl&password=javaisthebest&realName='Arek Sokolowski'&age=45"
 
 	routing {
+        // nowy rekord
 		post("/category") {
 			val p_name = call.parameters["name"].toString()
 			

@@ -11,6 +11,8 @@ import io.ktor.request.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
+import com.google.gson.Gson
+
 import com.januszpol.models.Subscription
 import com.januszpol.tables.SubscriptionTable
 
@@ -31,7 +33,7 @@ fun Application.getSubscription() {
 			transaction {
                 subscriptions = SubscriptionTable.selectAll().map { SubscriptionTable.toSubscription(it) }.toMutableList()
             }
-            call.respond(subscriptions.toString())
+            call.respond(Gson().toJson(subscriptions))
     	}
 
         get("/subscription/{id}") {
@@ -40,7 +42,7 @@ fun Application.getSubscription() {
             transaction {
                 subscription = SubscriptionTable.select { SubscriptionTable.id eq id }.map { SubscriptionTable.toSubscription(it) }.first()
             }
-            call.respond(subscription.toString())
+            call.respond(Gson().toJson(subscription))
         }
 
     }

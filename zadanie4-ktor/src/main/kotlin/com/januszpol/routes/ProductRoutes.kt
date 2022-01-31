@@ -42,7 +42,7 @@ fun Application.getProduct() {
             transaction {
                 product = ProductTable.select { ProductTable.id eq id }.map { ProductTable.toProduct(it) }.first()
             }
-            call.respond(product.toString())
+            call.respond(Gson().toJson(product))
         }
 
     }
