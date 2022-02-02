@@ -78,7 +78,7 @@ private fun Application.putUser() {
 
 fun Application.postUser() {
 
-// curl -X POST http://127.0.0.1:8080/user -H "Content-Type: application/x-www-form-urlencoded" -d "login=Arek&email=sokolowski@uj.edu.pl&password=javaisthebest&realName='Arek Sokolowski'&age=45"
+// curl -X POST -F param1=value1 -F param2=value2 http://localhost:8080/test2
 
 	routing {
 		post("/user") {
@@ -99,7 +99,6 @@ fun Application.postUser() {
 					it[UserTable.age] = 		p_age
 				}
 			}
-
 			call.respondText("User stored correctly\n", status = HttpStatusCode.Created)
 		}
 	}

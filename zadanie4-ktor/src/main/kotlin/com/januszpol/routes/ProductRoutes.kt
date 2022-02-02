@@ -73,9 +73,6 @@ private fun Application.putProduct() {
 
 
 fun Application.postProduct() {
-
-// curl -X POST http://127.0.0.1:8080/product -H "Content-Type: application/x-www-form-urlencoded" -d "login=Arek&email=sokolowski@uj.edu.pl&password=javaisthebest&realName='Arek Sokolowski'&age=45"
-
 	routing {
 		post("/product") {
 			val params = call.receiveParameters()

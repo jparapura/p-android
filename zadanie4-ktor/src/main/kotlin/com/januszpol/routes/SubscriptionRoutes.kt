@@ -52,10 +52,11 @@ fun Application.getSubscription() {
 private fun Application.putSubscription() {
     routing {
         put("/subscription/{id}") {
+            val params = call.receiveParameters()
 			val p_id = call.parameters["id"]!!.toInt()
-			val p_userId = call.parameters["userId"]!!.toInt()
-			val p_startDate = call.parameters["startDate"]!!.toInt()
-			val p_duration = call.parameters["duration"]!!.toInt()
+			val p_userId = params["userId"]!!.toInt()
+			val p_startDate = params["startDate"]!!.toInt()
+			val p_duration = params["duration"]!!.toInt()
 
 
             transaction {
@@ -76,9 +77,10 @@ fun Application.postSubscription() {
 
 	routing {
 		post("/subscription") {
-			val p_userId = call.parameters["userId"]!!.toInt()
-			val p_startDate = call.parameters["startDate"]!!.toInt()
-			val p_duration = call.parameters["duration"]!!.toInt()
+            val params = call.receiveParameters()
+			val p_userId = params["userId"]!!.toInt()
+			val p_startDate = params["startDate"]!!.toInt()
+			val p_duration = params["duration"]!!.toInt()
 
 			transaction {
 				SubscriptionTable.insert {

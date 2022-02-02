@@ -52,9 +52,10 @@ fun Application.getOrder() {
 private fun Application.putOrder() {
     routing {
         put("/order/{id}") {
+            val params = call.receiveParameters()
 			val p_id = call.parameters["id"]!!.toInt()
-			val p_userId = call.parameters["userId"]!!.toInt()
-			val p_productId = call.parameters["productId"]!!.toInt()
+			val p_userId = params["userId"]!!.toInt()
+			val p_productId = params["productId"]!!.toInt()
 
 
             transaction {
@@ -70,12 +71,11 @@ private fun Application.putOrder() {
 
 fun Application.postOrder() {
 
-// curl -X POST http://127.0.0.1:8080/order -H "Content-Type: application/x-www-form-urlencoded" -d "login=Arek&email=sokolowski@uj.edu.pl&password=javaisthebest&realName='Arek Sokolowski'&age=45"
-
 	routing {
 		post("/order") {
-			val p_userId = call.parameters["userId"]!!.toInt()
-			val p_productId = call.parameters["productId"]!!.toInt()
+            val params = call.receiveParameters()
+			val p_userId = params["userId"]!!.toInt()
+			val p_productId = params["productId"]!!.toInt()
 			
 			transaction {
 				OrderTable.insert {

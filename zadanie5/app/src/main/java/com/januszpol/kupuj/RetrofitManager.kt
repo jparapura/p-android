@@ -10,7 +10,7 @@ import retrofit2.Response
 import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitManager {
-    private val apiUrl: String = "http://2ae4-83-242-74-67.ngrok.io/"
+    private val apiUrl: String = "http://3e29-83-242-74-67.ngrok.io/"
 
     fun getProductsFromApi(realmApi: RealmApi) {
         Log.v("EXAMPLE", "building retrofit object")
@@ -38,11 +38,11 @@ class RetrofitManager {
                     for (i in apiResponse.indices) {
                         realmApi.postProductsToRealm(
                             Product(
-                            apiResponse[i].id,
-                            apiResponse[i].name,
-                            apiResponse[i].description,
-                            apiResponse[i].rating
-                        )
+                                apiResponse[i].id,
+                                apiResponse[i].name,
+                                apiResponse[i].description,
+                                apiResponse[i].rating
+                            )
                         )
                     }
                     realmApi.printAllProducts()

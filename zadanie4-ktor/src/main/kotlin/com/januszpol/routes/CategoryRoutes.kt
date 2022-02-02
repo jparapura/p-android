@@ -53,28 +53,31 @@ private fun Application.putCategory() {
     routing {
         // aktualizacja całego rekordu
         put("/category/{id}") {
+            val params = call.receiveParameters()
+
 			val p_id = call.parameters["id"]!!.toInt()
-			val p_name = call.parameters["name"].toString()
+			val p_name = params["name"].toString()
 
             transaction {
                 CategoryTable.update({ CategoryTable.id eq p_id }) {
 					it[CategoryTable.name] =		p_name
                 }
             }
+
+
         }
     }
 }
 
 
 fun Application.postCategory() {
-
-// curl -X POST http://127.0.0.1:8080/category -H "Content-Type: application/x-www-form-urlencoded" -d "login=Arek&email=sokolowski@uj.edu.pl&password=javaisthebest&realName='Arek Sokolowski'&age=45"
-
 	routing {
         // nowy rekord
 		post("/category") {
-			val p_name = call.parameters["name"].toString()
-			
+            val params = call.receiveParameters()
+
+            val p_name = params["name"].toString()
+
 			transaction {
 				CategoryTable.insert {
 					it[CategoryTable.name] =		p_name
